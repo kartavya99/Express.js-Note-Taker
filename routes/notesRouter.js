@@ -22,7 +22,7 @@ nRouter.get("/api/notes", (req, res) => {
     readFromFile("./db/db.json")
     .then((data) => JSON.parse(data))
     .then((json) => {
-        const result = json.filter((note) => note.note_id === noteId);
+        const result = json.filter((notes) => notes.note_id === noteId);
         return result.length > 0 
         ? res.json(result) // if statement 
         : res.json("no note with that id"); // else statment 
@@ -37,10 +37,10 @@ nRouter.get("/api/notes", (req, res) => {
 
 
 
-// Delete - api/notes/:id  should receive a query parameter containing the id of a note to delete. Need to set up each note a unique id when it is saved.
+// Delete - api/notes/:note_id  should receive a query parameter containing the id of a note to delete. Need to set up each note a unique id when it is saved.
 // In order to delete a note, need to read all notes from the db.json file, remove the note with the given id property, and then rewrite the notes to the db.json file.
 
-nRouter.delete("/:note_id", (req, res) => {
+nRouter.delete("/api/notes/:note_id", (req, res) => {
     const noteId = req.params.note_id;
     readFromFile("./db/db.json")
     .then((data) => JSON.parse(data))
