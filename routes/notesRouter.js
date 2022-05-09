@@ -16,13 +16,13 @@ nRouter.get('/', (req, res) => {
 });
 
 // GET Method - api/notes should read the db.json file and return all save notes as JSON.
-nRouter.get("/api/notes", (req, res) => {
+nRouter.get("/notes/id", (req, res) => {
    // console.log("Receiving notes");
-    const notes = req.params.notes;
+    const notes = req.params.id;
     readFromFile("./db/db.json")
     .then((data) => JSON.parse(data))
     .then((json) => {
-        const result = json.filter((notes) => notes.note_id === noteId);
+        const result = json.filter((id) => id.note_id === noteId);
         return result.length > 0 
         ? res.json(result) // if statement 
         : res.json("no note with that id"); // else statment 
@@ -42,24 +42,20 @@ nRouter.post("/", (req, res) => {
             text,
             note_id : uuidv4(),
         }
-
         readAndAppend(newNote, "./db/db.json");
         res.json(`New note addes successfully 🚀`);
     } else {
-        res.error("Error in adding note")
+        res.status(500).send("Error in adding note. Must send a 'title' and 'text' properly")
     }
 });
-
-
-
 
 
 
 // Delete - api/notes/:note_id  should receive a query parameter containing the id of a note to delete. Need to set up each note a unique id when it is saved.
 // In order to delete a note, need to read all notes from the db.json file, remove the note with the given id property, and then rewrite the notes to the db.json file.
 
-nRouter.delete("/api/notes/:note_id", (req, res) => {
-    const noteId = req.params.note_id;
+nRouter.delete("/id", (req, res) => {
+    //const noteId = req.params.note_id;
     readFromFile("./db/db.json")
     .then((data) => JSON.parse(data))
     .then((json) => {

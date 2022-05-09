@@ -8,5 +8,15 @@
     },
     {
         "note_id": "5122b18f-0bbb-4616-8d38-38b3b0e3d341"
+    },
+    {
+        "title": "initial",
+        "text": "new note",
+        "note_id": "8afd58f2-f772-40fe-9709-3dfc59a12692"
+    },
+    {
+        "title": "Post Request",
+        "text": "It is working",
+        "note_id": "380f0aad-a38a-4138-9bfe-6b8f68bebde3"
     }
 ]
