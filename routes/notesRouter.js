@@ -31,6 +31,24 @@ nRouter.get("/api/notes", (req, res) => {
 
 // POST method - api/notes should receive a new note to save on the request body(payload), add it to the db.json file, and then return the new note to the client.
 
+nRouter.post("/", (req, res) => {
+    console.log(req.body);
+
+    const { title, text } = req.body;
+
+    if(title && text) {
+        const newNote = {
+            title,
+            text,
+            note_id : uuidv4(),
+        }
+
+        readAndAppend(newNote, "./db/db.json");
+        res.json(`New note addes successfully 🚀`);
+    } else {
+        res.error("Error in adding note")
+    }
+});
 
 
 

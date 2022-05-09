@@ -5,14 +5,18 @@ const util = require("util");
 const readFromFile = util.promisify(fs.readFile);
 
 //Function to write data to the JSON file given a destination and some content
-const writeTOFile = (destination, content) => { 
-    fs.writeFile(destination, JSON.stringify(content, null, 4)), (error) => error ? console.error(error) : console.info(`\nData writeen to ${destination}`)
-};
+const writeTOFile = (destination, content) =>
+fs.writeFile(destination, JSON.stringify(content, null, 4), (error) => error ? console.error(error) : console.info(`\nData writeen to ${destination}`)
+);
+
+// const writeTOFile = (destination, content) => { 
+//     fs.writeFile(destination, JSON.stringify(content, null, 4)), (error) => error ? console.error(error) : console.info(`\nData writeen to ${destination}`)
+// };
 
 
 // Function to read data from a give file and append some content
 const readAndAppend = (content, file) => {
-    fs.readFIle(file, "utf8", (error ,data) => { 
+    fs.readFile(file, "utf8", (error ,data) => { 
         if (error) {
             console.error(error); 
         } else {
@@ -23,4 +27,4 @@ const readAndAppend = (content, file) => {
     });
 };
 
-module.exports = { readFromFile, readAndAppend};
+module.exports = { readFromFile, readAndAppend, writeTOFile};
