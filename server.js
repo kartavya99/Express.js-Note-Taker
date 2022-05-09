@@ -2,7 +2,9 @@
 
 const express = require("express");
 const path = require("path");
+
 const api = require("./routes/index.js");
+const notes = require('./routes/notesRouter');
 
 
 
@@ -27,7 +29,7 @@ app.get('/notes', (req,res) =>
 
 //get routes for notes page which is also wildcare Route
 app.get("*", (req, res) => 
-    res.sendFile(path.join(__dirname, "../public.index.html"))
+    res.sendFile(path.join(__dirname, "../public/index.html"))
 );
 
 
