@@ -21,7 +21,12 @@ nRouter.get("/api/notes", (req, res) => {
     const notes = req.params.notes;
     readFromFile("./db/db.json")
     .then((data) => JSON.parse(data))
-    res.json(notes);
+    .then((json) => {
+        const result = json.filter((note) => note.note_id === noteId);
+        return result.length > 0 
+        ? res.json(result) // if statement 
+        : res.json("no note with that id"); // else statment 
+    })
 })
 
 // POST method - api/notes should receive a new note to save on the request body(payload), add it to the db.json file, and then return the new note to the client.
