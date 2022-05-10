@@ -56,6 +56,7 @@ nRouter.post("/", (req, res) => {
 
 nRouter.delete("/:note_id", (req, res) => {
     const deleteNote = req.params.note_id;
+    console.info(`${req.method} request received for note id ${deleteNote}`);
     readFromFile("./db/db.json")
     .then((data) => JSON.parse(data))
     .then((json) => {
