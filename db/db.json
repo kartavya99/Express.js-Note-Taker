@@ -1,15 +1,5 @@
 [
     {
-        "title": "Test Title",
-        "text": "Test text"
-    },
-    {
-        "note_id": "f13b2b55-7f89-40ae-a7a6-a71d03dcdac6"
-    },
-    {
-        "note_id": "5122b18f-0bbb-4616-8d38-38b3b0e3d341"
-    },
-    {
         "title": "initial",
         "text": "new note",
         "note_id": "8afd58f2-f772-40fe-9709-3dfc59a12692"
@@ -23,5 +13,10 @@
         "title": "Delete Request",
         "text": "to check delete method",
         "note_id": "ac89436e-7c0f-475b-a77e-55cfd0087dda"
+    },
+    {
+        "title": "Post request note",
+        "text": "checking post request",
+        "note_id": "161f61a9-ed66-4131-8393-659972635af9"
     }
 ]
