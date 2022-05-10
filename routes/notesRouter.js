@@ -16,9 +16,9 @@ nRouter.get('/', (req, res) => {
 });
 
 // GET Method - api/notes should read the db.json file and return all save notes as JSON.
-nRouter.get("/notes/id", (req, res) => {
+nRouter.get("/:note_id", (req, res) => {
    // console.log("Receiving notes");
-    const notes = req.params.id;
+    const noteId = req.params.note_id;
     readFromFile("./db/db.json")
     .then((data) => JSON.parse(data))
     .then((json) => {
@@ -54,13 +54,13 @@ nRouter.post("/", (req, res) => {
 // Delete - api/notes/:note_id  should receive a query parameter containing the id of a note to delete. Need to set up each note a unique id when it is saved.
 // In order to delete a note, need to read all notes from the db.json file, remove the note with the given id property, and then rewrite the notes to the db.json file.
 
-nRouter.delete("/id", (req, res) => {
-    //const noteId = req.params.note_id;
+nRouter.delete("/:note_id", (req, res) => {
+    const deleteNote = req.params.note_id;
     readFromFile("./db/db.json")
     .then((data) => JSON.parse(data))
     .then((json) => {
         //make a new array of all the notes except the one with the ID provided in the URL
-        const result = json.filter((note) => note.note_id !== noteId);
+        const result = json.filter((note) => note.note_id !== deleteNote);
 
         //save that array to the filesystem
         writeTOFile("./db/db.json", result);
