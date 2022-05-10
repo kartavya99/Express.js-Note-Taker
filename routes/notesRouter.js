@@ -54,8 +54,8 @@ nRouter.post("/", (req, res) => {
 // Delete - api/notes/:note_id  should receive a query parameter containing the id of a note to delete. Need to set up each note a unique id when it is saved.
 // In order to delete a note, need to read all notes from the db.json file, remove the note with the given id property, and then rewrite the notes to the db.json file.
 
-nRouter.delete("/:note_id", (req, res) => {
-    const deleteNote = req.params.note_id;
+nRouter.delete("/id", (req, res) => {
+    const deleteNote = req.params.id;
     readFromFile("./db/db.json")
     .then((data) => JSON.parse(data))
     .then((json) => {
@@ -66,7 +66,7 @@ nRouter.delete("/:note_id", (req, res) => {
         writeTOFile("./db/db.json", result);
 
         //Respond to the Delete request
-        res.json(`Note ${noteId} had been deleted 🗑️`);
+        res.json(`Note ${deleteNote} had been deleted 🗑️`);
     });
 });
 
