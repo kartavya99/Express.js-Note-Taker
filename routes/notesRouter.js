@@ -67,7 +67,9 @@ nRouter.delete("/note_id", (req, res) => {
 
         //Respond to the Delete request
         res.json(`Note ${deleteNote} had been deleted 🗑️`);
-        console.log(notes);
+        //console.log(notes);
+        console.log(deleteNote);
+        console.log(result);
     });
 });
 
