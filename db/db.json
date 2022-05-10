@@ -18,5 +18,10 @@
         "title": "Post Request",
         "text": "It is working",
         "note_id": "380f0aad-a38a-4138-9bfe-6b8f68bebde3"
+    },
+    {
+        "title": "Delete Request",
+        "text": "to check delete method",
+        "note_id": "ac89436e-7c0f-475b-a77e-55cfd0087dda"
     }
 ]
