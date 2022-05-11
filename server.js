@@ -24,12 +24,12 @@ app.use(express.static('public'));
 
 //Get routes for notes page 
 app.get('/notes', (req,res) => 
-    res.sendFile(path.join(__dirname, "../public/notes.html"))
+    res.sendFile(path.join(__dirname, "./public/notes.html"))
 );
 
 //get routes for notes page which is also wildcare Route
 app.get("*", (req, res) => 
-    res.sendFile(path.join(__dirname, "../public/index.html"))
+    res.sendFile(path.join(__dirname, "./public/index.html"))
 );
 
 
