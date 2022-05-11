@@ -22,7 +22,7 @@ nRouter.get("/:note_id", (req, res) => {
     readFromFile("./db/db.json")
     .then((data) => JSON.parse(data))
     .then((json) => {
-        const result = json.filter((id) => id.note_id === noteId);
+        const result = json.filter((id) => id.id === noteId);
         return result.length > 0 
         ? res.json(result) // if statement 
         : res.json("no note with that id"); // else statment 
@@ -40,7 +40,7 @@ nRouter.post("/", (req, res) => {
         const newNote = {
             title,
             text,
-            note_id : uuidv4(),
+            id : uuidv4(),
         }
         readAndAppend(newNote, "./db/db.json");
         res.json(`New note addes successfully 🚀`);
@@ -61,7 +61,7 @@ nRouter.delete("/:note_id", (req, res) => {
     .then((data) => JSON.parse(data))
     .then((json) => {
         //make a new array of all the notes except the one with the ID provided in the URL
-        const result = json.filter((note) => note.note_id !== deleteNote);
+        const result = json.filter((note) => note.id !== deleteNote);
 
         //save that array to the filesystem
         writeTOFile("./db/db.json", result);

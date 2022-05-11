@@ -2,16 +2,11 @@
     {
         "title": "initial",
         "text": "new note",
-        "note_id": "8afd58f2-f772-40fe-9709-3dfc59a12692"
+        "id": "8afd58f2-f772-40fe-9709-3dfc59a12692"
     },
     {
         "title": "Post Request",
         "text": "It is working",
-        "note_id": "380f0aad-a38a-4138-9bfe-6b8f68bebde3"
-    },
-    {
-        "title": "Post request note",
-        "text": "checking post request",
-        "note_id": "161f61a9-ed66-4131-8393-659972635af9"
+        "id": "380f0aad-a38a-4138-9bfe-6b8f68bebde3"
     }
 ]
